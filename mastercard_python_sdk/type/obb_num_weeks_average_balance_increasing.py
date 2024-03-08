@@ -1,0 +1,34 @@
+# coding: utf-8
+
+"""
+    Open Banking
+
+    OpenAPI specification for Finicity APIs.  Open Banking solutions in the US are provided by Finicity, a Mastercard company.
+
+    The version of the OpenAPI document: 1.16.0
+    Contact: apisupport@mastercard.com
+    Created by: https://developer.mastercard.com/open-banking-us/documentation/support/
+"""
+
+from datetime import datetime, date
+import typing
+from enum import Enum
+from typing_extensions import TypedDict, Literal, TYPE_CHECKING
+
+from mastercard_python_sdk.type.obb_average_weekly_balance import ObbAverageWeeklyBalance
+
+class RequiredObbNumWeeksAverageBalanceIncreasing(TypedDict):
+    # Average weekly balances over the known history
+    historicAverageWeeklyBalances: typing.List[ObbAverageWeeklyBalance]
+
+    # Number of weeks during the known history where the average balance of the account increased week over week
+    historicNumberOfWeeksAverageBalanceIncreasing: int
+
+    # Number of weeks during the history in which data was available
+    historicNumberOfWeeksWithDataAvailable: int
+
+class OptionalObbNumWeeksAverageBalanceIncreasing(TypedDict, total=False):
+    pass
+
+class ObbNumWeeksAverageBalanceIncreasing(RequiredObbNumWeeksAverageBalanceIncreasing, OptionalObbNumWeeksAverageBalanceIncreasing):
+    pass

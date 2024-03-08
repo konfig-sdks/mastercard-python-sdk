@@ -1,0 +1,31 @@
+# coding: utf-8
+
+"""
+    Open Banking
+
+    OpenAPI specification for Finicity APIs.  Open Banking solutions in the US are provided by Finicity, a Mastercard company.
+
+    The version of the OpenAPI document: 1.16.0
+    Contact: apisupport@mastercard.com
+    Created by: https://developer.mastercard.com/open-banking-us/documentation/support/
+"""
+
+from datetime import datetime, date
+import typing
+from enum import Enum
+from typing_extensions import TypedDict, Literal, TYPE_CHECKING
+
+
+class RequiredCashFlowActivityDepositsCredits(TypedDict):
+    # Date the deposit transaction was posted
+    date: str
+
+    # Amount of the deposit
+    depositsCredits: typing.Union[int, float]
+
+class OptionalCashFlowActivityDepositsCredits(TypedDict, total=False):
+    # Description of transaction
+    transactionDescription: str
+
+class CashFlowActivityDepositsCredits(RequiredCashFlowActivityDepositsCredits, OptionalCashFlowActivityDepositsCredits):
+    pass
